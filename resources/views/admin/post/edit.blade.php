@@ -18,7 +18,7 @@
                 <ol class="breadcrumb breadcrumb-alt">
                     <li class="breadcrumb-item">App</li>
                     <li class="breadcrumb-item">Posts</li>
-                    <li class="breadcrumb-item" aria-current="page">Create</li>
+                    <li class="breadcrumb-item" aria-current="page">Edit</li>
                 </ol>
             </nav>
         </div>
@@ -30,18 +30,18 @@
         <div class="col-12">
             <form action="{{route('post.update', $post->id)}}" method="POST" enctype="multipart/form-data">
                 @csrf
-                @method('PUT')  
+                @method('PUT')
                 <div class="block block-bordered">
                     <div class="block-header block-header-default">
                         <a class="btn btn-alt-secondary" href="{{route('post.index')}}">
                             <i class="fa fa-arrow-left me-1"></i> Back to list
                         </a>
-                        <!-- <div class="block-options">
-                        <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" value="" id="dm-post-edit-active" name="dm-post-edit-active" checked>
-                            <label class="form-check-label" for="dm-post-edit-active">Set active</label>
+                        <div class="block-options">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" value="" id="dm-post-edit-active" name="dm-post-edit-active" checked>
+                                <label class="form-check-label" for="dm-post-edit-active">Set active</label>
+                            </div>
                         </div>
-                    </div> -->
                     </div>
                     <div class="block-content">
                         <div class="row">
@@ -58,13 +58,8 @@
                             </div>
                         </div>
 
-                        <div class="row push">
-                            <div class="col-12 col-lg-2">
-                                <p class="text-muted">
-                                    Yangilikning matni va eslatmalar
-                                </p>
-                            </div>
-                            <div class="col-12 col-lg-10">
+                        <div class="row justify-content-center push">
+                            <div class="col-md-10">
                                 <div class="mb-4">
                                     <label class="form-label" for="TitleUz">Title</label>
                                     <input type="text" class="form-control" id="TitleUz" name="title" value="{{$post->title}}">
@@ -72,12 +67,7 @@
 
                                 <div class="mb-4">
                                     <label class="form-label" for="DescUz">Description</label>
-                                    <input type="text" class="form-control" id="DescUz" name="descript" value="{{$post->descript}}">
-                                </div>
-
-                                <div class="mb-4">
-                                    <label class="form-label">Content</label>
-                                    <textarea class="form-control text-area" name="content" rows="6">{{$post->content}}</textarea>
+                                    <textarea rows="3" class="form-control" id="DescUz" name="descript">{{$post->descript}}</textarea>
                                 </div>
 
                                 <div class="mb-4">
@@ -112,10 +102,13 @@
                                     </div>
                                 </div>
 
+                                <div class="mb-4">
+                                    <label class="form-label">Content</label>
+                                    <textarea class="form-control text-area" name="content" rows="6">{{$post->content}}</textarea>
+                                </div>
+
                             </div>
                         </div>
-
-
                     </div>
                     <div class="block-content bg-body-light">
                         <div class="row push">
@@ -131,8 +124,6 @@
         </div>
     </div>
 </div>
-
-
 
 @endsection
 

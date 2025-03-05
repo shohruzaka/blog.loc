@@ -12,14 +12,13 @@
   <meta name="robots" content="index, follow">
 
   <!-- Icons -->
-  <link rel="shortcut icon" href="{{ asset('media/favicons/favicon.png') }}">
-  <link rel="icon" sizes="192x192" type="image/png" href="{{ asset('media/favicons/favicon-192x192.png') }}">
-  <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('media/favicons/apple-touch-icon-180x180.png') }}">
+  <link rel="shortcut icon" href="{{ asset('dashboard/favicon.png') }}">
+  <link rel="icon" sizes="192x192" type="image/png" href="{{ asset('dashboard/favicon.png') }}">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('dashboard/favicon.png') }}">
 
   <!-- Modules -->
   @yield('css')
   <link rel="stylesheet" id="css-main" href="{{asset('dashboard/css/oneui.min.css')}}">
-
 
 </head>
 
@@ -119,7 +118,7 @@
             </li>
 
             <li class="nav-main-item open">
-              <a class="nav-main-link" href="/">
+              <a class="nav-main-link" href="{{route('tag.index')}}">
                 <i class="nav-main-link-icon si si-tag"></i>
                 <span class="nav-main-link-name">Tags</span>
               </a>

@@ -49,4 +49,9 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     Route::put('category/{id}', [CategoryController::class, 'update'])->name('category.update');
     Route::post('category/destroy/{id}', [CategoryController::class, 'destroy'])->name('category.destroy');
 
+    Route::get('tag/list', function () {
+        return view('admin.tag.create');
+    })->name('tag.index');
+    
+
 });

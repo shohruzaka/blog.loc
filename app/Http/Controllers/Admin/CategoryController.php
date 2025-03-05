@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class CategoryController extends Controller
 {
@@ -31,10 +32,9 @@ class CategoryController extends Controller
         $request->validate([
             'name' => 'required'
         ]);
-        // dd($request->all());
+        $request['slug'] = Str::slug($request->name);
         $res = Category::create($request->all());
         if ($res) {
-
             return redirect()->route('category.index')->with('success', "Category added successfully");
         } else {
             return redirect()->back()->with('error', "Category not added");
@@ -65,6 +65,7 @@ class CategoryController extends Controller
         $request->validate([
             'name' => "required"
         ]);
+        $request['slug'] = Str::slug($request->name);
         $categ = Category::find($id);
         $categ->update($request->all());
         return redirect()->route('category.index')->with('success', "Category updated !");

@@ -27,37 +27,22 @@
     </div>
 </div>
 
-
 <div class="content content-full content-boxed">
     <!-- New Post -->
-    <form action="{{route('post.store')}}" method="POST" enctype="multipart/form-data">
-        @csrf
+    <form action="be_pages_blog_post_add.html" method="POST" enctype="multipart/form-data" onsubmit="return false;">
         <div class="block">
             <div class="block-header block-header-default">
-                <a class="btn btn-alt-secondary" href="{{route('post.index')}}">
+                <a class="btn btn-alt-secondary" href="be_pages_blog_post_manage.html">
                     <i class="fa fa-arrow-left me-1"></i> Manage Posts
                 </a>
                 <div class="block-options">
                     <div class="form-check form-switch">
-                        <input class="form-check-input" type="checkbox" name="active">
+                        <input class="form-check-input" type="checkbox" value="" id="dm-post-add-active" name="dm-post-add-active">
                         <label class="form-check-label" for="dm-post-add-active">Set active</label>
                     </div>
                 </div>
             </div>
             <div class="block-content">
-                <div class="row">
-                    <div class="col-12">
-                        @if ($errors->any())
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                        @endif
-                    </div>
-                </div>
                 <div class="row justify-content-center push">
                     <div class="col-md-10">
                         <div class="mb-4">
@@ -75,9 +60,7 @@
                                 <div class="col-md-6">
                                     <label class="form-label" for="post">Select category</label>
                                     <select class="form-select" id="post" name="category_id">
-                                        @foreach($categories as $id=>$category)
-                                        <option value="{{$id}}">{{$category}}</option>
-                                        @endforeach
+                                       
                                     </select>
                                 </div>
                                 <div class="col-md-6 mt-3 mt-md-0">
@@ -100,7 +83,7 @@
                         </div>
                         <div class="mb-4">
                             <label class="form-label">Body</label>
-                            <textarea name="content" class="form-control" rows="10"></textarea>
+                            <textarea name="dm-post-add-body" class="form-control" rows="10"></textarea>
                         </div>
                     </div>
                 </div>
@@ -118,6 +101,7 @@
     </form>
     <!-- END New Post -->
 </div>
+
 
 @endsection
 
