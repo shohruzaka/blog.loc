@@ -56,7 +56,7 @@ class SocialAuthController extends Controller
             // Foydalanuvchini tizimga kiritish
             Auth::login($user, true);
 
-            return redirect()->intended('/admin');
+            return redirect('/');
             
         } catch (\Exception $e) {
             return redirect()->route('login')->with('error', 'Ijtimoiy tarmoq orqali kirish jarayonida xatolik yuz berdi.');

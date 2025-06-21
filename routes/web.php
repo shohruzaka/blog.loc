@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Auth\SocialAuthController;
 /*
 |--------------------------------------------------------------------------
@@ -19,9 +20,9 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/admin', function () {
+Route::match(['get', 'post'], '/admin', function () {
     return view('admin.dashboard');
-});
+})->middleware(['auth'])->name('dashboard');
 
 Route::get('/post', function () {
     return view('post');
@@ -31,8 +32,6 @@ Route::get('/post', function () {
 
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
 
-    // Route::post('/', [AdminController::class, 'index'])->name('dashboard');
-    // Books
     Route::get('post/list', [PostController::class, 'index'])->name('post.index');
     Route::get('post/create', [PostController::class, 'create'])->name('post.create');
     Route::post('post/store', [PostController::class, 'store'])->name('post.store');

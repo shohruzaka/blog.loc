@@ -12,13 +12,13 @@
   <meta name="robots" content="index, follow">
 
   <!-- Icons -->
-  <link rel="shortcut icon" href="{{ asset('dashboard/favicon.png') }}">
-  <link rel="icon" sizes="192x192" type="image/png" href="{{ asset('dashboard/favicon.png') }}">
-  <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('dashboard/favicon.png') }}">
+  <link rel="shortcut icon" href="{{ asset('admin/favicon.png') }}">
+  <link rel="icon" sizes="192x192" type="image/png" href="{{ asset('admin/favicon.png') }}">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('admin/favicon.png') }}">
 
   <!-- Modules -->
   @yield('css')
-  <link rel="stylesheet" id="css-main" href="{{asset('dashboard/css/oneui.min.css')}}">
+  <link rel="stylesheet" id="css-main" href="{{ asset('admin/css/oneui.min.css') }}">
 
 </head>
 
@@ -96,7 +96,7 @@
         <div class="content-side">
           <ul class="nav-main">
             <li class="nav-main-item">
-              <a class="nav-main-link{{ request()->is('dashboard') ? ' active' : '' }}" href="/dashboard">
+              <a class="nav-main-link" href="{{route('dashboard')}}">
                 <i class="nav-main-link-icon si si-cursor"></i>
                 <span class="nav-main-link-name">Saytga o'tish</span>
               </a>
@@ -164,9 +164,10 @@
                 <a class="dropdown-item d-flex align-items-center justify-content-between" href="javascript:void(0)">
                   <span class="fs-sm fw-medium">Lock Account</span>
                 </a>
-                <a class="dropdown-item d-flex align-items-center justify-content-between" href="javascript:void(0)">
-                  <span class="fs-sm fw-medium">Log Out</span>
-                </a>
+                <form method="POST" action="{{ route('logout') }}">
+                  @csrf
+                  <button class="dropdown-item d-flex align-items-center justify-content-between type="submit">Logout</button>
+                </form>
               </div>
 
             </div>
@@ -202,11 +203,11 @@
   </div>
   <!-- END Page Container -->
 
-  <script src="{{asset('dashboard/js/oneui.app.min.js')}}"></script>
-  <script src="{{asset('dashboard/js/lib/jquery.min.js')}}"></script>
+  <script src="{{asset('admin/js/oneui.app.min.js')}}"></script>
+  <script src="{{asset('admin/js/lib/jquery.min.js')}}"></script>
 
   <!-- Page JS Plugins -->
-  <script src="{{asset('dashboard/js/plugins/bootstrap-notify/bootstrap-notify.min.js')}}"></script>
+  <script src="{{asset('admin/js/plugins/bootstrap-notify/bootstrap-notify.min.js')}}"></script>
 
   @yield('js')
 

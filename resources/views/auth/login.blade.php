@@ -9,7 +9,7 @@
     <meta name="author" content="shohruz">
     <title>Megabit - qaynoq yangiliklar</title>
     <link rel="shortcut icon" href="{{asset('front/img/favicon.png')}}">
-    <!-- <link rel="stylesheet" href="{{asset('front/css/plugins.css')}}"> -->
+    <link rel="stylesheet" href="{{asset('front/css/plugins.css')}}">
     <link rel="stylesheet" href="{{asset('front/css/style.css')}}"">
 </head>
 
@@ -23,17 +23,25 @@
                     <div class="card-body p-11 text-center">
                         <h2 class="mb-3 text-center">Xush kelibsiz</h2>
                         <p class="lead mb-6 text-center">Kirish uchun kerakli maydonlarni to'ldiring</p>
-                        <form class="text-start mb-3">
+                        @if ($errors->any())
+                        <div style="color: red; margin-bottom: 20px;">
+                            @foreach ($errors->all() as $error)
+                            <p class="text-red">* {{ $error }}</p>
+                            @endforeach
+                        </div>
+                        @endif
+                        <form class="text-start mb-3" action="{{ route('login') }}" method="POST">
+                            @csrf
                             <div class="form-floating mb-4">
-                                <input type="email" class="form-control" placeholder="Email" id="loginEmail">
-                                <label for="loginEmail">Email</label>
+                                <input name="name" type="text" class="form-control" placeholder="username" id="usernamelogin">
+                                <label for="usernamelogin">Username</label>
                             </div>
                             <div class="form-floating password-field mb-4">
-                                <input type="password" class="form-control" placeholder="Password" id="loginPassword">
+                                <input name="password" type="password" class="form-control" placeholder="Password" id="loginPassword">
                                 <span class="password-toggle"><i class="uil uil-eye"></i></span>
                                 <label for="loginPassword">Password</label>
                             </div>
-                            <a class="btn btn-primary rounded-pill btn-login w-100 mb-2">Sign In</a>
+                            <button type="submit" class="btn btn-primary rounded-pill btn-login w-100 mb-2">Kirish</button>
                         </form>
                         <!-- /form -->
                         <p class="mb-1"><a href="#" class="hover">Parolni unutdim?</a></p>

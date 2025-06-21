@@ -39,7 +39,7 @@
               <i class="far fa-2x fa-file-alt text-primary"></i>
             </div>
             <p class="fs-4 fw-bold mb-0">
-              150
+              {{ $stats['total_posts'] }}
             </p>
             <p class="text-muted mb-0">
               All Posts

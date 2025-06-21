@@ -25,12 +25,9 @@
                     <div class="card image-wrapper bg-full bg-image bg-overlay bg-overlay-400" data-image-src="{{asset('front/img/photos/bg3.jpg')}}">
                         <div class="card-body p-6 p-md-11 d-lg-flex flex-row align-items-lg-center justify-content-md-between text-center text-lg-start">
                             <h3 class="display-6 mb-6 mb-lg-0 pe-lg-10 pe-xl-5 pe-xxl-18 text-white">We are trusted by over 5000+ clients. Join them by using our services and grow your business.</h3>
-                            @auth
-                            <a href="#" class="btn btn-white rounded-pill mb-0 text-nowrap">{{ auth()->user()->name }}</a>
-                            @endauth
-                            @guest
-                            <a href="{{route('login')}}" class="btn btn-white rounded-pill mb-0 text-nowrap">Kirish</a>
-                            @endguest
+                            
+                            <a href="#" class="btn btn-white rounded-pill mb-0 text-nowrap">Telegram</a>
+
                         </div>
                         <!--/.card-body -->
                     </div>

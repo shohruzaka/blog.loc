@@ -1,7 +1,7 @@
 @extends('admin.layouts.backend')
 @section('css')
 
-<link rel="stylesheet" href="{{asset('dashboard/js/plugins/flatpickr/flatpickr.min.css') }}">
+<link rel="stylesheet" href="{{asset('admin/js/plugins/flatpickr/flatpickr.min.css') }}">
 
 @endsection
 @section('content')
@@ -106,5 +106,5 @@
 @endsection
 
 @section('js_after')
-<script src="{{asset('dashboard/js/plugins/flatpickr/flatpickr.min.js') }}"></script>
+<script src="{{asset('admin/js/plugins/flatpickr/flatpickr.min.js') }}"></script>
 @endsection
