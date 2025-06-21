@@ -12,13 +12,13 @@
   <meta name="robots" content="index, follow">
 
   <!-- Icons -->
-  <link rel="shortcut icon" href="{{ asset('admin/favicon.png') }}">
-  <link rel="icon" sizes="192x192" type="image/png" href="{{ asset('admin/favicon.png') }}">
-  <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('admin/favicon.png') }}">
+  <link rel="shortcut icon" href="{{ asset('dashboard/favicon.png') }}">
+  <link rel="icon" sizes="192x192" type="image/png" href="{{ asset('dashboard/favicon.png') }}">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('dashboard/favicon.png') }}">
 
   <!-- Modules -->
   @yield('css')
-  <link rel="stylesheet" id="css-main" href="{{ asset('admin/css/oneui.min.css') }}">
+  <link rel="stylesheet" id="css-main" href="{{ asset('dashboard/css/oneui.min.css') }}">
 
 </head>
 
@@ -203,11 +203,11 @@
   </div>
   <!-- END Page Container -->
 
-  <script src="{{asset('admin/js/oneui.app.min.js')}}"></script>
-  <script src="{{asset('admin/js/lib/jquery.min.js')}}"></script>
+  <script src="{{asset('dashboard/js/oneui.app.min.js')}}"></script>
+  <script src="{{asset('dashboard/js/lib/jquery.min.js')}}"></script>
 
   <!-- Page JS Plugins -->
-  <script src="{{asset('admin/js/plugins/bootstrap-notify/bootstrap-notify.min.js')}}"></script>
+  <script src="{{asset('dashboard/js/plugins/bootstrap-notify/bootstrap-notify.min.js')}}"></script>
 
   @yield('js')
 

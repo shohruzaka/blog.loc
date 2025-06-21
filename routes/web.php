@@ -20,10 +20,6 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::match(['get', 'post'], '/admin', function () {
-    return view('admin.dashboard');
-})->middleware(['auth'])->name('dashboard');
-
 Route::get('/post', function () {
     return view('post');
 });
@@ -31,6 +27,8 @@ Route::get('/post', function () {
 
 
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
+
+    Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
     Route::get('post/list', [PostController::class, 'index'])->name('post.index');
     Route::get('post/create', [PostController::class, 'create'])->name('post.create');
