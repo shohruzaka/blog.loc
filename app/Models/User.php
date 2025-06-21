@@ -23,7 +23,8 @@ class User extends Authenticatable
         'email',
         'password',
         'provider', // Socialite uchun
-        'provider_id', // Socialite uchun
+        'provider_id',
+        'provider_token', // Socialite uchun
         'avatar', // Socialite uchun
         'role', // admin, user
         'bio',
@@ -40,6 +41,7 @@ class User extends Authenticatable
         'remember_token',
         'two_factor_recovery_codes',
         'two_factor_secret',
+        'provider_token', // Socialite uchun
     ];
 
     /**

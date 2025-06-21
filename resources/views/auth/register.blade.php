@@ -56,9 +56,8 @@
                             <!-- /form -->
                             <div class="divider-icon my-4">yoki</div>
                             <nav class="nav social justify-content-center text-center">
-                                <a href="#" class="btn btn-circle btn-sm btn-google"><i class="uil uil-google"></i></a>
-                                <a href="#" class="btn btn-circle btn-sm btn-facebook-f"><i class="uil uil-facebook-f"></i></a>
-                                <a href="#" class="btn btn-circle btn-sm btn-twitter"><i class="uil uil-twitter"></i></a>
+                                <a href="{{ route('social.redirect', 'google') }}" class="btn btn-circle btn-sm btn-google"><i class="uil uil-google"></i></a>
+                                <a href="{{ route('social.redirect', 'github') }}" class="btn btn-circle btn-sm btn-twitter"><i class="uil uil-github"></i></a>
                             </nav>
                             <!--/.social -->
                         </div>

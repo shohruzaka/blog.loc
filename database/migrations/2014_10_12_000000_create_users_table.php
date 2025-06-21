@@ -22,6 +22,7 @@ return new class extends Migration
 
             $table->string('provider')->nullable();
             $table->string('provider_id')->nullable();
+            $table->string('provider_token')->nullable(); // Socialite uchun
 
             $table->string('avatar')->nullable();
             $table->rememberToken();
