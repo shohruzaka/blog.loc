@@ -62,7 +62,7 @@
                     <div class="col-md-10">
                         <div class="mb-4">
                             <label class="form-label" for="TitleUz">Title</label>
-                            <input type="text" class="form-control" id="TitleUz" name="title" placeholder="...">
+                            <input type="text" class="form-control" id="TitleUz" name="title" required>
                         </div>
 
                         <div class="mb-4">

@@ -49,7 +49,12 @@
                     <ul class="navbar-nav flex-row align-items-center ms-auto">
                         <li class="nav-item"><a class="nav-link" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-search"><i class="uil uil-search"></i></a></li>
                         <li class="nav-item d-none d-md-block">
-                            <a href="/admin" class="btn btn-sm btn-primary rounded-pill">Login</a>
+                            @auth
+                            <a href="#" class="btn btn-primary rounded-pill mb-0 text-nowrap">{{ auth()->user()->name }}</a>
+                            @endauth
+                            @guest
+                            <a href="{{route('login')}}" class="btn btn-sm btn-primary rounded-pill">Kirish</a>
+                            @endguest
                         </li>
                         <li class="nav-item d-lg-none">
                             <button class="hamburger offcanvas-nav-btn"><span></span></button>

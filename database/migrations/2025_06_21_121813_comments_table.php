@@ -11,19 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('posts', function (Blueprint $table) {
+        Schema::create('comments', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('slug')->unique();
-            $table->text('descript');
             $table->text('content');
-            $table->string('image')->nullable();
-            $table->enum('status', ['draft', 'published'])->default('draft');
+            $table->foreignId('post_id')->constrained()->onDelete('cascade');
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->foreignId('category_id')->constrained()->onDelete('cascade');
-            $table->integer('views')->default(0);
-            $table->timestamp('published_at')->nullable();
-
+            $table->foreignId('parent_id')->nullable()->constrained('comments')->onDelete('cascade');
+            $table->boolean('approved')->default(true);
             $table->timestamps();
         });
     }
@@ -33,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('posts');
+        //Schema::dropIfExists('comments');
     }
 };

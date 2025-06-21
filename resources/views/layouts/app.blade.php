@@ -18,22 +18,31 @@
 
     @include('partials.navbar')
 
-    <section class="wrapper bg-soft-green">
-        <div class="container py-8 py-md-8 text-center">
+    <section class="wrapper bg-light">
+        <div class="container py-4 py-md-4">
             <div class="row">
-                <div class="col-lg-8 col-xxl-7 mx-auto text-center" data-cues="slideInDown" data-group="page-title" data-delay="600" data-disabled="true">
-
-                    <h1 class="display-1 fs-58 mb-7" data-cue="slideInDown" data-group="page-title" data-delay="600" data-show="true" style="animation-name: slideInDown; animation-duration: 700ms; animation-timing-function: ease; animation-delay: 900ms; animation-direction: normal; animation-fill-mode: both;">We bring rapid solutions for your business.</h1>
-                    <div class="d-flex justify-content-center mb-5 mb-md-0" data-cues="slideInDown" data-group="page-title-buttons" data-delay="900" data-cue="slideInDown" data-disabled="true" data-show="true" style="animation-name: slideInDown; animation-duration: 700ms; animation-timing-function: ease; animation-delay: 900ms; animation-direction: normal; animation-fill-mode: both;">
-                        <span data-cue="slideInDown" data-group="page-title-buttons" data-delay="900" data-show="true" style="animation-name: slideInDown; animation-duration: 700ms; animation-timing-function: ease; animation-delay: 1500ms; animation-direction: normal; animation-fill-mode: both;"><a href="#" class="btn btn-lg btn-outline-primary rounded-pill">Telegram</a></span>
+                <div class="mx-auto">
+                    <div class="card image-wrapper bg-full bg-image bg-overlay bg-overlay-400" data-image-src="{{asset('front/img/photos/bg3.jpg')}}">
+                        <div class="card-body p-6 p-md-11 d-lg-flex flex-row align-items-lg-center justify-content-md-between text-center text-lg-start">
+                            <h3 class="display-6 mb-6 mb-lg-0 pe-lg-10 pe-xl-5 pe-xxl-18 text-white">We are trusted by over 5000+ clients. Join them by using our services and grow your business.</h3>
+                            @auth
+                            <a href="#" class="btn btn-white rounded-pill mb-0 text-nowrap">{{ auth()->user()->name }}</a>
+                            @endauth
+                            @guest
+                            <a href="{{route('login')}}" class="btn btn-white rounded-pill mb-0 text-nowrap">Kirish</a>
+                            @endguest
+                        </div>
+                        <!--/.card-body -->
                     </div>
+                    <!--/.card -->
                 </div>
-                <!--/column -->
+                <!-- /column -->
             </div>
             <!-- /.row -->
         </div>
         <!-- /.container -->
     </section>
+    <!-- /section -->
 
     <!-- /section -->
     <section class="wrapper bg-light">
@@ -41,13 +50,13 @@
             <div class="row gx-lg-8 gx-xl-12">
                 <div class="col-lg-8">
 
-                    @yield('content')    
+                    @yield('content')
 
                 </div>
                 <!-- /column -->
                 <aside class="col-lg-4 sidebar mt-4 mt-lg-0">
 
-                   @include('partials.sidebar')
+                    @include('partials.sidebar')
 
                 </aside>
                 <!-- /column .sidebar -->
