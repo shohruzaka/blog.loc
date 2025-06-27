@@ -14,8 +14,12 @@ class CategoryController extends Controller
      */
     public function index()
     {
+        $categories = Category::withCount('posts')
+            ->withSum('posts as posts_views_sum', 'views')
+            ->get();
+
         return view('admin.category.list', [
-            'ctgr' => Category::all()
+            'categories' => $categories
         ]);
     }
 
@@ -76,6 +80,10 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
+        $category = Category::find($id);
+        if ($category && $category->posts()->count() > 0) {
+            return back()->with('error', 'Cannot delete category with posts!');
+        }
         Category::destroy($id);
         return redirect()->route('category.index')->with('success', "Category deleted !");
     }

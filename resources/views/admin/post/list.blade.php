@@ -42,55 +42,58 @@
             </div>
         </div>
         <div class="block-content">
-            <!-- Topics -->
             <table class="table table-striped table-borderless table-vcenter">
-                <thead class="border-bottom">
-                    <tr>
-                        <th colspan="2">Title</th>
-                        <th class="d-none d-md-table-cell text-center" style="width: 100px;">Category</th>
-                        <th class="d-none d-md-table-cell text-center" style="width: 100px;">Views</th>
-                        <th class="d-none d-md-table-cell text-center" style="width: 200px;">Action</th>
+                <thead>
+                    <tr class="bg-body-dark">
+                        <th style="width: 60px;">ID</th>
+                        <th style="width: 33%;">Title</th>
+                        <th class="d-none d-sm-table-cell">Category</th>
+                        <th class="d-none d-xl-table-cell">Views</th>
+                        <th class="d-none d-xl-table-cell">Status</th>
+                        <th style="width: 150px;" class="text-center">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-
                     @foreach($posts as $post)
                     <tr>
-                        <td colspan="2">
-                            <p class="fw-semibold text-muted">{{$post->title}}</p>
+                        <td>
+                            {{ $post->id }}
                         </td>
-                        <td class="d-none d-md-table-cell text-center">
-                            <a class="fw-semibold" href="#" role="button">{{$post->category->name}}</a>
+                        <td>
+                            <a href="be_pages_blog_story.html">
+                                {{ $post->title }}
+                            </a>
                         </td>
-                        <td class="d-none d-md-table-cell text-center text-muted">
-                            {{$post->views}}
+                        <td class="d-none d-sm-table-cell">
+                            <a href="be_pages_generic_profile.html">{{ $post->category->name }}</a>
                         </td>
-                        <td class="d-md-table-cell text-center">
-                            <div class="btn-group">
+                        <td class="d-none d-xl-table-cell">
+                            {{ $post->views }}
+                        </td>
+                        <td class="d-none d-xl-table-cell">
+                            {{ $post->status == 'published' ? 'Published' : 'Draft' }}
+                        </td>
+                        <td class="text-center">
 
-                                <a href="{{route('post.edit', $post->id)}}" class="btn btn-sm btn-alt-secondary">
-                                    <i class="fa fa-fw fa-pencil-alt"></i>
-                                </a>
+                            <a href="{{route('post.edit', $post->id)}}" class="btn btn-sm btn-alt-secondary">
+                                <i class="fa fa-fw fa-pencil-alt text-primary"></i>
+                            </a>
 
-                                <a href="{{route('post.show', $post->id)}}" class="btn btn-sm btn-alt-secondary">
-                                    <i class="fa fa-fw fa-eye"></i>
-                                </a>
+                            <a href="{{route('post.show', $post->id)}}" class="btn btn-sm btn-alt-secondary">
+                                <i class="fa fa-fw fa-eye text-success"></i>
+                            </a>
+                            <form action="{{route('post.destroy', $post->id)}}" method="POST" style="display:inline;">
+                                @csrf
+                                <button type="submit" class="btn btn-sm btn-alt-secondary" onclick="return confirm('Are you sure you want to delete this post?');">
+                                    <i class="fa fa-fw fa-trash text-danger"></i>
+                                </button>
+                            </form>
 
-                                <form action="{{route('post.destroy', $post->id)}}" method="POST" style="display:inline;">
-                                    @csrf
-                                    <button type="submit" class="btn btn-sm btn-alt-secondary" onclick="return confirm('Are you sure you want to delete this post?');">
-                                        <i class="fa fa-fw fa-times"></i>
-                                    </button>
-                                </form>
-
-                            </div>
                         </td>
                     </tr>
                     @endforeach
-
                 </tbody>
             </table>
-            <!-- END Topics -->
         </div>
     </div>
     <!-- END Topics -->

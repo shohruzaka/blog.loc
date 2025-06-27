@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Auth\SocialAuthController;
+use App\Http\Controllers\HomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,9 +17,9 @@ use App\Http\Controllers\Auth\SocialAuthController;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/',  [HomeController::class, 'index'])->name('home');
+
+Route::get('/all-posts',  [HomeController::class, 'allPosts'])->name('all-posts');
 
 Route::get('/post', function () {
     return view('post');

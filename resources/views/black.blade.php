@@ -1,3 +1,50 @@
+<div class="blog classic-view">
+    <article class="post">
+        <div class="card">
+            <figure class="card-img-top overlay overlay-1 hover-scale">
+                <a href="{{ route('post.show', $lastPost->slug) }}">
+                    <img src="{{ $lastPost->image ? asset('storage/'.$lastPost->image) : asset('assets/img/photos/b1.jpg') }}" alt="{{ $lastPost->title }}" />
+                </a>
+                <figcaption>
+                    <h5 class="from-top mb-0">Read More</h5>
+                </figcaption>
+            </figure>
+            <div class="card-body py-4">
+                <div class="post-header">
+                    <div class="post-category text-line">
+                        <a href="#" class="hover" rel="category">{{ $lastPost->category->name }}</a>
+                    </div>
+                    <h2 class="post-title mt-1 mb-0">
+                        <a class="link-dark" href="./blog-post.html">{{ $lastPost->title }}</a>
+                    </h2>
+                </div>
+                <div class="post-content">
+                    <p class="m-0">{{ $lastPost->descript }}</p>
+                </div>
+            </div>
+            <div class="card-footer py-2">
+                <ul class="post-meta d-flex mb-0">
+                    <li class="post-date">
+                        <i class="uil uil-calendar-alt"></i>
+                        <span> {{ $lastPost->published_at->format('d M Y') }}</span>
+                    </li>
+                    <li class="post-author">
+                        <a href="#"><i class="uil uil-user"></i><span>By {{ $lastPost->user->name }}</span></a>
+                    </li>
+                    <li class="post-comments">
+                        <a href="#"><i class="uil uil-comment"></i>111<span> Comments</span></a>
+                    </li>
+                    <li class="post-likes ms-auto">
+                        <a href="#"><i class="uil uil-eye"></i>{{ $lastPost->views }}</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </article>
+</div>
+
+
+
 
 <div class="content content-full">
     <div class="row">
@@ -103,7 +150,6 @@
 </div>
 
 <!-- POST CREATE  -->
-
 
 <!-- Page Content -->
 <div class="content">

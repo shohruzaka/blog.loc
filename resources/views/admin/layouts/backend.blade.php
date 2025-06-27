@@ -5,10 +5,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 
-  <title>OneUI - Bootstrap 5 Admin Template &amp; UI Framework</title>
+  <title>Megabit.uz - Admin Dashboard</title>
 
-  <meta name="description" content="OneUI - Bootstrap 5 Admin Template &amp; UI Framework created by pixelcave">
-  <meta name="author" content="pixelcave">
+  <meta name="description" content="Megabit.uz - Admin Dashboard">
+  <meta name="author" content="shohruzaka">
   <meta name="robots" content="index, follow">
 
   <!-- Icons -->
@@ -98,7 +98,7 @@
             <li class="nav-main-item">
               <a class="nav-main-link" href="{{route('dashboard')}}">
                 <i class="nav-main-link-icon si si-cursor"></i>
-                <span class="nav-main-link-name">Saytga o'tish</span>
+                <span class="nav-main-link-name">Home Dashboard</span>
               </a>
             </li>
             <li class="nav-main-heading">Various</li>

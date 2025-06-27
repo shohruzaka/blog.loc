@@ -20,23 +20,15 @@ class Post extends Model
         'descript',
         'content',
         'category_id',
-        'image'
+        'image',
+        'status',
+        'user_id',
+        'published_at',
     ];
 
     protected $casts = [
         'published_at' => 'datetime',
     ];
-
-    protected static function boot()
-    {
-        parent::boot();
-
-        static::creating(function ($post) {
-            if (empty($post->slug)) {
-                $post->slug = Str::slug($post->title);
-            }
-        });
-    }
 
     public function user()
     {

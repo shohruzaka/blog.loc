@@ -54,17 +54,18 @@
                 </thead>
                 <tbody>
 
-                    @foreach($ctgr as $ctgr)
+                    @foreach($categories as $ctgr)
                     <tr>
                         <td colspan="2">
                             <a class="fw-semibold" href="be_pages_forum_discussion.html">{{$ctgr->name}}</a>
                         </td>
                         <td class="d-none d-md-table-cell text-center">
-                            <a class="fw-semibold" href="#" role="button">124</a>
+                            <a class="fw-semibold" href="#" role="button">{{$ctgr->posts_count}}</a>
                         </td>
                         <td class="d-none d-md-table-cell text-center">
-                            <a class="fw-semibold" href="#" role="button">1148</a>
+                            <a class="fw-semibold" href="#" role="button">{{$ctgr->posts_views_sum}}</a>
                         </td>
+                        
                         <td class="d-md-table-cell text-center">
                             <div class="btn-group">
                                 <a href="#" role="button" class="btn btn-sm btn-alt-secondary" data-bs-toggle="modal" data-bs-target="#modal-edit-{{$ctgr->id}}">

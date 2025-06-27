@@ -2,19 +2,19 @@
         <nav class="navbar navbar-expand-lg classic navbar-light navbar-bg-light">
             <div class="container flex-lg-row flex-nowrap align-items-center">
                 <div class="navbar-brand w-100">
-                    <a href="./index.html">
+                    <a href="{{route('home')}}">
                         <img src="{{asset('front/logosm.png')}}" srcset="{{asset('front/logo500.png')}} 2x" alt="" style="max-width: 50%;" />
                     </a>
                 </div>
                 <div class="navbar-collapse offcanvas offcanvas-nav offcanvas-start">
                     <div class="offcanvas-header d-lg-none">
-                        <a href="./index.html"><img src=" {{asset('front/logo2x.png')}}" srcset="{{asset('front/logo2x.png')}} 2x" alt="" /></a>
+                        <a href="{{route('home')}}"><img src=" {{asset('front/logo2x.png')}}" srcset="{{asset('front/logo2x.png')}} 2x" alt="" /></a>
                         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
                     <div class="offcanvas-body ms-lg-auto d-flex flex-column h-100">
                         <ul class="navbar-nav">
 
-                            <li class="nav-item"><a class="nav-link" href="/post">Link</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ route('all-posts') }}">Barcha Yangiliklar</a></li>
                             <li class="nav-item"><a class="nav-link" href="#">Link2</a></li>
                             <li class="nav-item"><a class="nav-link" href="#">Link3</a></li>
                             <li class="nav-item"><a class="nav-link" href="#">Link4</a></li>

@@ -38,8 +38,8 @@
                         </a>
                         <div class="block-options">
                             <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" value="" id="dm-post-edit-active" name="dm-post-edit-active" checked>
-                                <label class="form-check-label" for="dm-post-edit-active">Set active</label>
+                                <input class="form-check-input" type="checkbox" name="status" id="add-active" value="1" {{ $post->status == 'published' ? 'checked' : '' }}>
+                                <label class="form-check-label" for="add-active">Set active</label>
                             </div>
                         </div>
                     </div>
@@ -105,6 +105,22 @@
                                 <div class="mb-4">
                                     <label class="form-label">Content</label>
                                     <textarea class="form-control text-area" name="content" rows="6">{{$post->content}}</textarea>
+                                </div>
+
+                                <div class="mb-4">
+                                    <label class="form-label" for="tags">Tags</label>
+                                    <input type="text" class="form-control" id="tags" name="tags" 
+                                        value="{{ old('tags', $post->tags ? implode(', ', $post->tags->pluck('name')->toArray()) : '') }}" 
+                                        placeholder="tag1, tag2, tag3">
+                                    <small class="form-text text-muted">Taglarni vergul bilan ajrating.</small>
+                                    @if($post->tags && $post->tags->count())
+                                        <div class="mt-2">
+                                            <strong>Postdagi taglar:</strong>
+                                            @foreach($post->tags as $tag)
+                                                <span class="badge bg-info">{{ $tag->name }}</span>
+                                            @endforeach
+                                        </div>
+                                    @endif
                                 </div>
 
                             </div>

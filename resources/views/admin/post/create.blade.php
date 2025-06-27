@@ -39,7 +39,7 @@
                 </a>
                 <div class="block-options">
                     <div class="form-check form-switch">
-                        <input class="form-check-input" type="checkbox" name="active">
+                        <input class="form-check-input" type="checkbox" name="status" id="dm-post-add-active" checked value="1">
                         <label class="form-check-label" for="dm-post-add-active">Set active</label>
                     </div>
                 </div>
@@ -102,6 +102,12 @@
                             <label class="form-label">Body</label>
                             <textarea name="content" class="form-control" rows="10"></textarea>
                         </div>
+
+                        <div class="mb-4">
+                            <label class="form-label" for="tags">Tags</label>
+                            <input type="text" class="form-control" id="tags" name="tags" placeholder="tag1, tag2, tag3">
+                            <small class="form-text text-muted">Taglarni vergul bilan ajrating.</small>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -118,6 +124,19 @@
     </form>
     <!-- END New Post -->
 </div>
+
+@if(session('error'))
+<script>
+    One.helpersOnLoad('jq-notify');
+    One.helpers('jq-notify', {
+        align: 'right', // 'right', 'left', 'center'
+        from: 'top', // 'top', 'bottom'
+        type: 'danger', // 'info', 'success', 'warning', 'danger'
+        icon: 'fa fa-times me-2', // Icon class
+        message: "{{ session('error') }}"
+    });
+</script>
+@endif
 
 @endsection
 

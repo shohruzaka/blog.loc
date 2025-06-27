@@ -1,39 +1,29 @@
 <div class="widget">
-    <h4 class="widget-title mb-3">Popular Posts</h4>
+    <h4 class="widget-title mb-3">Ko'p o'qilganlar</h4>
     <ul class="image-list">
+        @foreach($featuredPosts as $post)
         <li>
-            <figure class="rounded"><a href="./blog-post.html"><img src="./assets/img/photos/a1.jpg" alt="" /></a></figure>
+            <figure class="rounded">
+                <a href="{{ route('post.show', $post->slug) }}">
+                    <img src="{{ $post->image ? asset('storage/'.$post->image) : asset('assets/img/photos/a3.jpg') }}" alt="{{ $post->title }}" />
+                </a>
+            </figure>
             <div class="post-content">
-                <h6 class="mb-2"> <a class="link-dark" href="./blog-post.html">Magna Mollis Ultricies</a> </h6>
+                <h6 class="mb-2">
+                    <a class="link-dark" href="{{ route('post.show', $post->slug) }}">{{ $post->title }}</a>
+                </h6>
                 <ul class="post-meta">
-                    <li class="post-date"><i class="uil uil-calendar-alt"></i><span>26 Mar 2021</span></li>
-                    <li class="post-comments"><a href="#"><i class="uil uil-comment"></i>3</a></li>
+                    <li class="post-date">
+                        <i class="uil uil-calendar-alt"></i>
+                        <span>{{ $post->published_at ? $post->published_at->format('d M Y') : '' }}</span>
+                    </li>
+                    <li class="post-comments">
+                        <a href="#"><i class="uil uil-comment"></i>{{ $post->comments_count ?? 0 }}</a>
+                    </li>
                 </ul>
-                <!-- /.post-meta -->
             </div>
         </li>
-        <li>
-            <figure class="rounded"> <a href="./blog-post.html"><img src="./assets/img/photos/a2.jpg" alt="" /></a></figure>
-            <div class="post-content">
-                <h6 class="mb-2"> <a class="link-dark" href="./blog-post.html">Ornare Nullam Risus</a> </h6>
-                <ul class="post-meta">
-                    <li class="post-date"><i class="uil uil-calendar-alt"></i><span>16 Feb 2021</span></li>
-                    <li class="post-comments"><a href="#"><i class="uil uil-comment"></i>6</a></li>
-                </ul>
-                <!-- /.post-meta -->
-            </div>
-        </li>
-        <li>
-            <figure class="rounded"><a href="./blog-post.html"><img src="./assets/img/photos/a3.jpg" alt="" /></a></figure>
-            <div class="post-content">
-                <h6 class="mb-2"> <a class="link-dark" href="./blog-post.html">Euismod Nullam Fusce</a> </h6>
-                <ul class="post-meta">
-                    <li class="post-date"><i class="uil uil-calendar-alt"></i><span>8 Jan 2021</span></li>
-                    <li class="post-comments"><a href="#"><i class="uil uil-comment"></i>5</a></li>
-                </ul>
-                <!-- /.post-meta -->
-            </div>
-        </li>
+        @endforeach
     </ul>
     <!-- /.image-list -->
 </div>
@@ -41,32 +31,30 @@
 <div class="widget">
     <h4 class="widget-title mb-3">Categories</h4>
     <ul class="unordered-list bullet-primary text-reset">
-        <li><a href="#">Teamwork (21)</a></li>
-        <li><a href="#">Ideas (19)</a></li>
-        <li><a href="#">Workspace (16)</a></li>
-        <li><a href="#">Coding (7)</a></li>
-        <li><a href="#">Meeting (12)</a></li>
-        <li><a href="#">Business Tips (14)</a></li>
+        @foreach($categories as $category)
+            <li>
+                <a href="#">
+                    {{ $category->name }} ({{ $category->posts_count }})
+                </a>
+            </li>
+        @endforeach
     </ul>
 </div>
 
 <div class="widget">
     <h4 class="widget-title mb-3">Tags</h4>
     <ul class="list-unstyled tag-list">
-        <li><a href="#" class="btn btn-soft-ash btn-sm rounded-pill">Still Life</a></li>
-        <li><a href="#" class="btn btn-soft-ash btn-sm rounded-pill">Urban</a></li>
-        <li><a href="#" class="btn btn-soft-ash btn-sm rounded-pill">Nature</a></li>
-        <li><a href="#" class="btn btn-soft-ash btn-sm rounded-pill">Landscape</a></li>
-        <li><a href="#" class="btn btn-soft-ash btn-sm rounded-pill">Macro</a></li>
-        <li><a href="#" class="btn btn-soft-ash btn-sm rounded-pill">Fun</a></li>
-        <li><a href="#" class="btn btn-soft-ash btn-sm rounded-pill">Workshop</a></li>
-        <li><a href="#" class="btn btn-soft-ash btn-sm rounded-pill">Photography</a></li>
+        @foreach($randomTags as $tag)
+            <li>
+                <a href="#" class="btn btn-soft-ash btn-sm rounded-pill">{{ $tag->name }}</a>
+            </li>
+        @endforeach
     </ul>
 </div>
 
 <div class="widget">
     <h4 class="widget-title mb-3">Biz haqimizda</h4>
-    <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum. Nulla vitae elit libero, a pharetra augue. Donec id elit non mi porta gravida at eget metus.</p>
+    <p>Texnologiya sohasida innovatsiyalarni targ‘ib qiluvchi oddiy blogerlar jamoasi. Eng so‘nggi trendlar va texnologik yechimlar haqida o‘quvchilarimizni xabardor qilishga intilamiz. O‘zbekiston va butun dunyo bo‘ylab texno-enthusiastlar uchun foydali kontent yaratamiz.</p>
     <nav class="nav social">
         <a href="#"><i class="uil uil-twitter"></i></a>
         <a href="#"><i class="uil uil-facebook-f"></i></a>

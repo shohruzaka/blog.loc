@@ -45,18 +45,18 @@
     <section class="wrapper bg-light">
         <div class="container py-10 py-md-10">
             <div class="row gx-lg-8 gx-xl-12">
-                <div class="col-lg-8">
-
-                    @yield('content')
-
-                </div>
-                <!-- /column -->
-                <aside class="col-lg-4 sidebar mt-4 mt-lg-0">
-
-                    @include('partials.sidebar')
-
-                </aside>
-                <!-- /column .sidebar -->
+                @if(View::hasSection('sidebar'))
+                    <div class="col-lg-8">
+                        @yield('content')
+                    </div>
+                    <aside class="col-lg-4 sidebar mt-4 mt-lg-0">
+                        @yield('sidebar')
+                    </aside>
+                @else
+                    <div class="col-lg-12">
+                        @yield('content')
+                    </div>
+                @endif
             </div>
             <!-- /.row -->
         </div>
