@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
+use Intervention\Image\Laravel\Facades\Image;
 
 class PostController extends Controller
 {
@@ -55,9 +56,14 @@ class PostController extends Controller
 
         try {
             $imagePath = null;
-            if ($request->hasFile('image')) {
+
+            if ($request->hasFile('image')) {                
                 $folder = date('F-Y');
-                $imagePath = $request->file('image')->store("images/{$folder}");
+                $image = Image::read($request->file('image'));
+                $resizedImage =  $image->scale(800, 600); // 800x600 ga o'lchamlarni o'zgartirish
+                $imageName = uniqid() . '.' . $request->file('image')->getClientOriginalExtension();
+                $imagePath = "images/{$folder}/{$imageName}";
+                Storage::put($imagePath, $resizedImage->encode());
             }
 
             $post = Post::create([
@@ -210,7 +216,11 @@ class PostController extends Controller
                     Storage::delete($post->image);
                 }
                 $folder = date('F-Y');
-                $data['image'] = $request->file('image')->store("images/{$folder}");
+                $image = Image::read($request->file('image'));
+                $resizedImage =  $image->scale(800, 600); // 800x600 ga o'lchamlarni o'zgartirish
+                $imageName = uniqid() . '.' . $request->file('image')->getClientOriginalExtension();
+                $imagePath = "images/{$folder}/{$imageName}";
+                Storage::put($imagePath, $resizedImage->encode());
             }
 
             $post->update($data);
