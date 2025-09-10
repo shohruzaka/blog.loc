@@ -21,8 +21,8 @@ class HomeController extends Controller
         $recentPosts = Post::published()
             ->with(['user', 'category'])
             ->latest('published_at')
-            ->take(6)
-            ->get();
+            ->paginate(3);
+
         $lastPost = $recentPosts->first();
 
         $randomTags = Tag::inRandomOrder()->take(10)->get();

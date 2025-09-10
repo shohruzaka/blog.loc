@@ -63,7 +63,8 @@ class PostController extends Controller
                 $resizedImage =  $image->scale(800, 600); // 800x600 ga o'lchamlarni o'zgartirish
                 $imageName = uniqid() . '.' . $request->file('image')->getClientOriginalExtension();
                 $imagePath = "images/{$folder}/{$imageName}";
-                Storage::put($imagePath, $resizedImage->encode());
+
+                Storage::disk('public')->put($imagePath, (string) $resizedImage->encode());
             }
 
             $post = Post::create([
@@ -213,14 +214,16 @@ class PostController extends Controller
             if ($request->hasFile('image')) {
                 // Eski rasmni o'chirish
                 if ($post->image) {
-                    Storage::delete($post->image);
+                    Storage::disk('public')->delete($post->image);
                 }
                 $folder = date('F-Y');
                 $image = Image::read($request->file('image'));
                 $resizedImage =  $image->scale(800, 600); // 800x600 ga o'lchamlarni o'zgartirish
                 $imageName = uniqid() . '.' . $request->file('image')->getClientOriginalExtension();
                 $imagePath = "images/{$folder}/{$imageName}";
-                Storage::put($imagePath, $resizedImage->encode());
+               
+                Storage::disk('public')->put($imagePath, (string) $resizedImage->encode());
+                $data['image'] = $imagePath;
             }
 
             $post->update($data);
@@ -248,7 +251,7 @@ class PostController extends Controller
         $post = Post::findOrFail($id);
 
         if ($post->image) {
-            Storage::delete($post->image);
+            Storage::disk('public')->delete($post->image);
         }
         $post->delete();
         return redirect()->route('post.index')->with('success', "Yangilik o'chirildi");

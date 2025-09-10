@@ -7,9 +7,11 @@
                     </a>
                 </div>
                 <div class="navbar-collapse offcanvas offcanvas-nav offcanvas-start">
-                    <div class="offcanvas-header d-lg-none">
-                        <a href="{{route('home')}}"><img src=" {{asset('front/logo2x.png')}}" srcset="{{asset('front/logo2x.png')}} 2x" alt="" /></a>
-                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    <div class="offcanvas-header d-lg-none justify-content-between align-items-center" style="padding-left: 1rem; padding-right: 1rem;">
+                        <a href="{{route('home')}}" class="flex-shrink-0">
+                            <img src="{{asset('front/logo500.png')}}" alt="" style="max-width: 200px;" />
+                        </a>
+                        <button type="button" class="btn-close btn-close-white ms-2" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
                     <div class="offcanvas-body ms-lg-auto d-flex flex-column h-100">
                         <ul class="navbar-nav">

@@ -8,7 +8,7 @@
     <meta name="keywords" content="keyin yozaman">
     <meta name="author" content="shohruz">
     <title>Megabit - qaynoq yangiliklar</title>
-    <link rel="shortcut icon" href="{{asset('front/img/favicon.png')}}">
+    <link rel="shortcut icon" href="{{asset('front/favicon.png')}}">
     <!-- <link rel="stylesheet" href="{{asset('front/css/plugins.css')}}"> -->
     <link rel="stylesheet" href="{{asset('front/css/style.css')}}"">
 </head>
