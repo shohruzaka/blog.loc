@@ -41,4 +41,24 @@ class HomeController extends Controller
 
         return view('all-posts', compact('posts'));
     }
+
+    function post_show($slug)
+    {
+        $post = Post::published()
+            ->where('slug', $slug)
+            ->with(['user', 'category', 'tags'])
+            ->firstOrFail();
+
+        // Ko'rishlar sonini oshirish
+        $post->increment('views');
+
+        // Tegishli postlarni olish (shu kategoriyadan 3 ta post)
+        $relatedPosts = Post::published()
+            ->where('category_id', $post->category_id)
+            ->where('id', '!=', $post->id)
+            ->take(3)
+            ->get();
+
+        return view('single-post', compact('post', 'relatedPosts'));
+    }
 }

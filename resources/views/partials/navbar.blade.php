@@ -17,7 +17,7 @@
                         <ul class="navbar-nav">
 
                             <li class="nav-item"><a class="nav-link" href="{{ route('all-posts') }}">Barcha Yangiliklar</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#">Link2</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/post">Single post</a></li>
                             <li class="nav-item"><a class="nav-link" href="#">Link3</a></li>
                             <li class="nav-item"><a class="nav-link" href="#">Link4</a></li>
 

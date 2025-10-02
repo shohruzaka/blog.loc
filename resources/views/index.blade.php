@@ -6,7 +6,7 @@
     <article class="post">
         <div class="card">
             <figure class="card-img-top overlay overlay-1 hover-scale">
-                <a href="{{ route('post.show', $lastPost->slug) }}">
+                <a href="{{ route('single-post', $lastPost->slug) }}">
                     <img src="{{ $lastPost->image ? asset('storage/'.$lastPost->image) : asset('assets/img/photos/b1.jpg') }}" alt="{{ $lastPost->title }}" />
                 </a>
                 <figcaption>
@@ -54,7 +54,7 @@
         <article class="item post col-md-6">
             <div class="card">
                 <figure class="card-img-top overlay overlay-1 hover-scale">
-                    <a href="{{ route('post.show', $post->slug) }}">
+                    <a href="{{ route('single-post', $post->slug) }}">
                         <img src="{{ $post->image ? asset('storage/'.$post->image) : asset('assets/img/photos/b4.jpg') }}" alt="{{ $post->title }}" />
                     </a>
                     <figcaption>
@@ -67,7 +67,7 @@
                             <a href="#" class="hover" rel="category">{{ $post->category->name ?? '' }}</a>
                         </div>
                         <h2 class="post-title h6 mt-1 mb-3">
-                            <a class="link-dark" href="{{ route('post.show', $post->slug) }}">{{ $post->title }}</a>
+                            <a class="link-dark" href="{{ route('single-post', $post->slug) }}">{{ $post->title }}</a>
                         </h2>
                     </div>
                 </div>

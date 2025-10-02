@@ -21,11 +21,7 @@ Route::get('/',  [HomeController::class, 'index'])->name('home');
 
 Route::get('/all-posts',  [HomeController::class, 'allPosts'])->name('all-posts');
 
-Route::get('/post', function () {
-    return view('post');
-});
-
-
+Route::get('/post/{slug}', [HomeController::class, 'post_show'])->name('single-post');
 
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
 
@@ -51,7 +47,6 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         return view('admin.tag.create');
     })->name('tag.index');
     
-
 });
 
 Route::get('auth/{provider}', [SocialAuthController::class, 'redirectToProvider'])->name('social.redirect');
